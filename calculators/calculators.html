@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calculators.css">
+    <title>Calculators by VD</title>
+</head>
+
+<body>
+    <div id="allpage">
+        <div class="openContent contentMzdy">
+            <button onclick="openMzdy()" id="mzdyOpenBtn">Otevřít výpočet čisté mzdy ▼</button>
+            <button onclick="closeMzdy()" id="mzdyCloseBtn" style="display:none">Zavřít výpočet čisté mzdy ▲</button>
+            <script>
+                function openMzdy() {
+                    const mzdyDiv = document.querySelector(".mzdy")
+                    const closeMzdyBtn = document.getElementById("mzdyCloseBtn")
+                    const openMzdyBtn = document.getElementById("mzdyOpenBtn")
+                    mzdyDiv.style.display = "block"
+                    openMzdyBtn.style.display = "none"
+                    closeMzdyBtn.style.display = "block"
+                }
+                function closeMzdy() {
+                    const mzdyDiv = document.querySelector(".mzdy")
+                    const closeMzdyBtn = document.getElementById("mzdyCloseBtn")
+                    const openMzdyBtn = document.getElementById("mzdyOpenBtn")
+                    mzdyDiv.style.display = "none"
+                    closeMzdyBtn.style.display = "none"
+                    openMzdyBtn.style.display = "block"
+                }
+            </script>
+        </div>
+        <div class="mzdy section">
+            <h1>Výpočet čisté mzdy</h1>
+            <div class="mzda-info">
+                <div class="mzdy-tabulky">
+                    <table>
+                        <caption>Daně a slevy</caption>
+                        <tr>
+                            <td width="225px">Státní daň</td>
+                            <td>15,00 % z HM</td>
+                        </tr>
+                        <tr>
+                            <td>Zdravotní Pojištění</td>
+                            <td>4,50 % z HM</td>
+                        </tr>
+                        <tr>
+                            <td>Sociální pojištění</td>
+                            <td>6,50 % z HM</td>
+                        </tr>
+                        <tr>
+                            <td>sleva poplatníka (2021)</td>
+                            <td>2 320,00 Kč</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <caption>Slevy na děti</caption>
+                        <tr>
+                            <td width="175px">0 dětí</td>
+                            <td>0,00 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>1. dítě</td>
+                            <td>1 267,00 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>2. dítě</td>
+                            <td>1 617,00 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>3. dítě a více</td>
+                            <td>2 017,00 Kč</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3 style="padding-left: 20px">Nejdříve zadejte počet dětí, poté HM</h3>
+            </div>
+            <div class="mzdy-tabulka">
+                
+                <div id="mzdy-deti" class="mzdy-bunka number-bunka" style="border:none">
+                    <label for="deti-input">Počet dětí :</label>
+                    <input type="number" id="deti-input" placeholder="Sem zadejte" min="0" max="100" value="0" required>
+                </div>
+
+                <div id="mzdy-hm" class="mzdy-bunka number-bunka" style="border:none">
+                    <label for="hm-input">Hrubá mzda :</label>
+                    <input type="number" id="hm-input" placeholder="Sem zadejte" min="0" max="1000000"required> 
+                </div>
+
+                <div id="mzdy-dan" class="mzdy-bunka">
+                    <label for="mzdy-dan-span">15% daň</label>
+                    <span id="mzdy-dan-span" class="mzdy-span">
+                        
+                    </span>
+                </div>
+
+                <div id="mzdy-zp" class="mzdy-bunka">
+                    <label for="mzdy-zp-span">Zdr. pojištění</label>
+                    <span id="mzdy-zp-span" class="mzdy-span">
+
+                    </span>
+                </div>
+
+                <div id="mzdy-sp" class="mzdy-bunka">
+                    <label for="mzdy-sp-span">Soc. pojištění</label>
+                    <span id="mzdy-sp-span" class="mzdy-span">
+
+                    </span>
+                </div>
+
+                <div id="mzdy-deti-sleva" class="mzdy-bunka">
+                    <label for="mzdy-deti-sleva-span">Sleva na děti</label>
+                    <span id="mzdy-deti-sleva-span" class="mzdy-span">
+                        
+                    </span>
+                </div>
+
+                <div id="mzdy-cm" class="mzdy-bunka">
+                    <label for="mzdy-cm-span">Čistá mzda</label>
+                    <span id="mzdy-cm-span" class="mzdy-span">
+
+                    </span>
+                    <div class="update">
+                        <p>Aktualizováno podle norem roku 2021</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="openContent odpisyContent">
+            <button onclick="openOdpisy();" id="odpisyOpenBtn" >Otevřít výpočet odpisů ▼</button>
+            <button onclick="closeOdpisy();" id="odpisyCloseBtn" style="display:none">Zavřít výpočet odpisů ▲</button> 
+            <script>
+                function openOdpisy() {
+                    const odpisyDiv = document.querySelector(".odpisy")
+                    const closeOdpisyBtn = document.getElementById("odpisyCloseBtn")
+                    const openOdpisyBtn = document.getElementById("odpisyOpenBtn")
+                    odpisyDiv.style.display = "block"
+                    openOdpisyBtn.style.display = "none"
+                    closeOdpisyBtn.style.display = "block"
+                }
+                function closeOdpisy() {
+                    const odpisyDiv = document.querySelector(".odpisy")
+                    const closeOdpisyBtn = document.getElementById("odpisyCloseBtn")
+                    const openOdpisyBtn = document.getElementById("odpisyOpenBtn")
+                    odpisyDiv.style.display = "none"
+                    closeOdpisyBtn.style.display = "none"
+                    openOdpisyBtn.style.display = "block"
+                }
+            </script>
+        </div>
+        <div class="odpisy section">
+            <h1>Výpočet odpisů</h1>
+            <div class="odpisyUpper">
+                <div>
+                    <h2>Rovnoměrné odpisy</h2>
+                    <label for="odpisSkupiny">Zadejte odpisovou skupinu</label>
+                    <select name="odpisSkupiny" id="odpisSkupiny">
+                        <option value="1" id="odpis1" class="odpisValue">1</option>
+                        <option value="2" id="odpis2" class="odpisValue">2</option>
+                        <option value="3" id="odpis3" class="odpisValue">3</option>
+                        <option value="4" id="odpis4" class="odpisValue">4</option>
+                        <option value="5" id="odpis5" class="odpisValue">5</option>
+                        <option value="6" id="odpis6" class="odpisValue">6</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="odpisCena">Zadejte pořizovací cenu</label>
+                        <input type="number" name="odpisCena" id="odpisCena" min="0" max="unlimited" required>
+                    <label for="odpisCena">Kč</label>
+                </div>
+                <button id="vypocitatBtn" class="btn">Vypočítat</button>
+                <p id="odpisCenaResult"></p>
+                <p id="odpisResult"></p>
+            </div>
+        </div>
+        <div class="openContent brigadaContent">
+            <button onclick="openBrigady();" id="brigadyOpenBtn" >Otevřít výpočet mzdy na brigádě ▼</button>
+            <button onclick="closeBrigady();" id="brigadyCloseBtn" style="display:none">Zavřít výpočet mzdy na brigádě ▲</button> 
+            <script>
+                function openBrigady() {
+                    const brigadyDiv = document.querySelector(".brigady")
+                    const closeBrigadyBtn = document.getElementById("brigadyCloseBtn")
+                    const openBrigadyBtn = document.getElementById("brigadyOpenBtn")
+                    brigadyDiv.style.display = "block"
+                    openBrigadyBtn.style.display = "none"
+                    closeBrigadyBtn.style.display = "block"
+                }
+                function closeBrigady() {
+                    const brigadyDiv = document.querySelector(".brigady")
+                    const closeBrigadyBtn = document.getElementById("brigadyCloseBtn")
+                    const openBrigadyBtn = document.getElementById("brigadyOpenBtn")
+                    brigadyDiv.style.display = "none"
+                    closeBrigadyBtn.style.display = "none"
+                    openBrigadyBtn.style.display = "block"
+                }
+            </script>
+        </div>
+        <div class="brigady section">
+            <h1>Výpočet mzdy na brigádě</h1>
+            <div class="brigady-row">
+                <div class="brigady-inputs">
+                    <label for="brigady-hodiny">Zadejte počet odpracovaných hodin</label>
+                    <div class="brigada-input">
+                        
+                        <input type="number" id="brigady-hodiny" name="brigady-hodiny" required>Kč
+                    </div>
+                    <label for="brigady-mzda">Zadejte mzdu (Kč za hodinu)</label>
+                    <div class="brigada-input">
+                        
+                        <input type="number" id="brigady-mzda" name="brigady-mzda" required>Kč
+                    </div>
+                </div>
+                <div>
+                    <button id="brigady-vypocitat" class="btn">Vypočítat</button>
+                </div>
+                <div class="brigady-results">
+                    <div>
+                        <label for="brigady-vyplata">Částka k výplatě</label>
+                        <span id="brigady-vyplata" class="mzdy-span" name="brigady-vyplata">0 Kč</span>
+                    </div>              
+                    <div>
+                        <label for="brigady-dan">Daň (4,5% ZP + 6,5% SP) (pouze při prekočení částky 10.000 Kč za měsíc)</label>
+                        <span id="brigady-dan" class="mzdy-span" name="brigady-dan">0 Kč</span>
+                    </div>    
+                    <div>
+                        <label for="brigady-vyplata-real">Skutečná částka k výplatě</label>
+                        <strong><span id="brigady-vyplata-real" class="mzdy-span" name="brigady-vyplata-real">0 Kč</span></strong>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="mzdy.js"></script>
+    <script src="odpisy.js"></script>
+    <script src="brigady.js"></script>
+</body>
+</html>

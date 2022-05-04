@@ -1,0 +1,60 @@
+* {
+    font-family: Verdana;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    outline: 2px solid black;
+    outline-offset: -2px;
+}
+
+.all-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    max-width: 1020px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    width: 618px;
+    height: 618px;
+} 
+
+.container > * {
+    display: inline;
+    padding: 15px auto;
+    margin: 15px auto;
+    line-height: 40px;
+}
+
+.square:active {
+    transition: background-color 0.1s ease-in-out;
+    background-color: rgb(226, 12, 12);
+    cursor: pointer;
+}
+
+.mole {
+    background-image: url("mole.png");
+    background-size: cover;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.mole:hover {
+    cursor: pointer;
+}
+
+.mole:active {
+    background-color: rgb(12, 226, 12);
+}
+
+h2 {
+    font-weight: 500;
+    padding: 15px auto;
+    margin: 15px auto;
+}

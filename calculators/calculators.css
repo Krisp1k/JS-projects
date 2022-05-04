@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin'; 
+}
+
+h1 {
+    border-bottom: 2px solid black;
+    text-align: center;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    margin: 0;
+}
+
+.section {
+    max-width: 80%;
+    border: 2px solid black;
+    min-height: 400px;
+    margin: 20px auto;
+}
+
+.mzdy {
+    display:none;
+}
+
+.odpisy {
+    display: none
+}
+
+.brigady {
+    display: none
+}
+
+.openContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.openContent button {
+    width: 250px;
+    height: 40px;
+    margin-top: 20px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+.openContent button:hover,
+.openContent button:active {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(233, 233, 233);
+}
+
+/* mzdy */
+
+.mzdy-tabulky {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mzdy-tabulky table {
+    margin: 15px 55px 20px 35px;
+}
+
+@media screen and (max-width: 768px) {
+    .mzdy-tabulky table {
+        margin: 5px 15px 20px 5px;
+    }
+}
+
+@media screen and (max-width: 1015px) {
+    .mzdy-tabulky table td {
+        max-width: 150px;
+    }
+}
+
+@media screen and (max-width: 885px) {
+    .mzdy-tabulky table td {
+        max-width: 120px;
+    }
+}
+
+caption {
+    font-weight: bold;
+}
+
+.mzdy-bunka {
+    flex-basis: 12.5%;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 5pxx 5px 50px;
+    min-height: 50px;
+    max-width: 300px;
+}
+
+.mzdy-bunka:last-child {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mzdy-span {
+    border: 2px solid black;
+    height: 30px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.mzdy-bunka input {
+    max-width: 100%;
+    min-height: 30px;
+    border: 2px solid black;
+    padding: 2.125%;
+}
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+.mzdy-bunka label {
+    margin-bottom: 20px;
+}
+
+#hm-input {
+    width: 200px;
+}
+
+/* odpisy */
+
+.odpisy > * div {
+    margin: 18px 0;
+    margin-left: 2%;
+}
+
+#odpisSkupiny {
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.odpisValue {
+    text-align: center;
+}
+
+.btn {
+    margin-left: 2%;
+    width: 100px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#odpisResult {
+    margin-left: 2%;
+    line-height: 25px;
+}
+
+/* brigady */
+
+.brigady-row {
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.brigady-inputs input {
+    margin: 5px 0;
+}
+
+#brigady-vypocitat {
+    margin: 15px 0 15px 0;
+}
+
+.brigady-results span {
+    margin: 5px 0 15px 0;
+}

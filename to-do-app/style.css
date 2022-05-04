@@ -1,0 +1,103 @@
+.todo-wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 400px;
+    max-width: 800px;
+}
+
+.todo-main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+textarea {
+    resize: none;
+    max-width: 700px;
+    min-width: 50%;
+    height: 70px;
+    margin: 7px auto;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type="date"],
+input[type="time"] {
+    margin: 7px auto;
+    width: 135px; 
+    text-align: center;
+}
+
+input[type="date"]:hover,
+input[type="time"]:hover {
+    cursor: pointer;
+}
+input[type="submit"] {
+    margin: 7px auto;
+    width: 100px;
+}
+.tasks-wrapper {
+    width: 80%;
+}
+.task {
+    display: flex;
+    flex-direction: row;
+    height: 95px;
+    justify-content: space-around;
+    margin: 20px auto;
+    word-wrap: break-word;
+}
+.task-content {
+    width: 60%;
+    border: 1px solid black;
+    padding: 5px
+}
+.task-timer {
+    width:20%;
+    border: 1px solid black;
+    margin-right: -1px;
+}
+.task-buttons {
+    width:20%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -1px;
+}
+.task-buttons button {
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+    transition: all 0.1s ease-in-out;
+   
+}
+.task-buttons button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#words-container {
+    text-align: left;
+    padding-left: 25%;
+    font-size: 12px;
+}
+#add-button {
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+    transition: all 0.1s ease-in-out;
+}
+#add-button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}

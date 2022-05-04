@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="todo-wrapper">
+        <div class="todo-main">
+            <h3>To-do zápisníček</h3>
+            <label for="add">Přidat úkol</label>
+            <textarea type="text" name="add" id="textarea" maxlength="150"></textarea>
+            <div id="words-container">
+                Zbývá charakterů : <span id="words"></span>
+            </div>
+            <label for="cas">Do : </label>
+            <input type="date" id="date">
+            <input type="time" id="time">
+            <input type="submit" name="submit" value="Přidat" id="add-button">
+        </div>
+        <div class="tasks-wrapper" id="tasks-wrapper">
+
+        </div>
+    </div>
+    <script src="todo-part2.js"></script>
+</body>
+</html>

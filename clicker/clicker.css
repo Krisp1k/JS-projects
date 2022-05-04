@@ -1,0 +1,129 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+
+/* SHIT */
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 812px) {
+    .container {
+        max-width: 100%;
+        margin-left: 0;     
+        margin-right: 0;
+    }
+
+    .game {
+        max-width: 100%;
+        margin-left: 0;     
+        margin-right: 0;
+    }
+}
+
+.stat > h2 {
+    display: inline;
+}
+
+.upgrades-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 50px auto 0px auto;
+    justify-content: center;
+}
+
+.upgrade {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 12%;
+    margin: 20px 20px 0 20px;
+    text-align: left;
+}
+.upgrade > p {
+    margin-left: 10%;
+}
+
+.unavailable {
+    background-color: red;
+
+}
+.available {
+    background-color: limegreen;
+}
+.purchased-text {
+    color: limegreen;
+    font-weight: 700;
+    font-size: 1.30rem;
+    text-align: center;
+}
+
+/* END OF SHIT */
+
+/* SERIOUS CSS */
+
+#click-btn {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(rgb(201, 168, 79), rgb(255, 0, 0));
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 0px 0px 3px hsl(0, 0%, 34%);
+    border: 2px solid rgb(48, 48, 48);
+    transition: transform 0.05s ease-in-out;
+}
+
+#click-btn:hover {
+    transform:scale(1.05);
+    cursor: pointer;
+}
+
+#click-btn:active{
+    transform:scale(0.95);
+    cursor: pointer;
+}
+
+.available,
+.unavailable {
+    width: 100%;
+    height: 60px;
+    border-radius: 3px;
+    padding: 5px;
+    border: 2px solid black;
+    box-shadow: 0px 0px 3px hsl(0, 0%, 34%);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px black;
+    transition: transform 0.05s ease-in-out;
+}
+.available:hover,
+.unavailable:hover {
+    transform:scale(1.05);
+    cursor: pointer;
+}
+
+.available:active,
+.unavailable:active {
+    transform:scale(0.95);
+    cursor: pointer;
+}
+
+#win-btn {
+    width: 50%;
+}
+
+
+
