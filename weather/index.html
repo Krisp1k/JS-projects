@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appka na počasí</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="container max-w-2xl ml-auto mr-auto flex flex-col items-center flex-wrap justify-center antialiased subpixel-antialiased">
+        <div class="header">
+            <h1 class="font-bold text-4xl mb-24 text-center mt-14">Počasí</h1>
+        </div>
+        <div class="search-bar flex flex-row items-center justify-center rounded-2xl shadow-xl bg-slate-200">
+            <input type="text" class="search-input p-4 h-10 w-72 bg-slate-200 rounded-2xl" placeholder="Napište město">
+            <button id="search-btn" class="w-12 h-12 ml-2 transition-all rounded-full bg-slate-200 scale-75 hover:bg-slate-300" ></button> 
+        </div>
+        <div id="card" class="hidden shadow-xl pt-4 pb-4 pl-8 pr-8 rounded-2xl mt-14 bg-slate-200">
+            <div id="name" class="text-2xl mt-6 mb-2 font-semibold"></div>
+            <div id="temp" class="text-4xl mt-6 mb-12 font-semibold"></div>
+            <div class="flex flex-row items-end">
+                <div id="desc" class="pb-1 font-medium"></div>
+                <img src="" alt="" class="icon " id="icon">
+            </div>
+            
+            <div id="humidity" class="font-medium"></div>
+            <div id="wind" class="font-medium"></div>
+            <div id="error" class="font-medium"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

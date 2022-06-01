@@ -1,0 +1,24 @@
+*,*::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+html {
+    /* background-image: url("ben.gif"); */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100%;
+    width: 100%;
+}
+
+#search-btn {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/OOjs_UI_icon_search-ltr.svg/40px-OOjs_UI_icon_search-ltr.svg.png");
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+input[type=text] {
+    outline: none;
+}
