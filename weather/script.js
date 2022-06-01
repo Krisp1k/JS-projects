@@ -29,9 +29,7 @@ const weather = {
             const { icon, description } = data.weather[0];
             const { speed } = data.wind;
     
-            console.log(name,temp,humidity, icon,description,speed)
-    
-            NAME.innerHTML = `Weather in ${name}`
+            NAME.innerHTML = `Počasí ve městě ${name}`
             TEMP.innerHTML = `${temp}°C`
             ICON.src = `https://openweathermap.org/img/wn/${icon}.png`
             DESC.innerHTML = description
@@ -57,18 +55,47 @@ const weather = {
 
     },
     search: function() {
-        this.fetchWeather(document.querySelector(".search-input").value)
+        this.fetchWeather(document.querySelector(".search-input").value)   
+    },
+    update: function(mesto) {
+        this.fetchWeather(mesto)
     }
 };
 
+
+
 document.getElementById("search-btn").addEventListener("click", ()=> {
-    weather.search();
-    document.querySelector(".search-input").value = ""
+    clearInterval(interval)
+    searchAndUpdate()
 })
 
 document.querySelector(".search-input").addEventListener("keyup", (key)=> {
     if (key.code == "Enter" || key.code == "NumpadEnter") {
-        weather.search();
-        document.querySelector(".search-input").value = ""
+        clearInterval(interval)
+        searchAndUpdate()
     }
 })
+
+var interval = null
+
+function searchAndUpdate() {
+    
+    let counterDiv = document.getElementById("update")
+    let mesto = document.querySelector(".search-input").value
+    let counter = 10
+
+    weather.search();
+    
+    interval = setInterval(function(){
+        counterDiv.innerHTML = `Aktualizace za ${counter} sek.`
+        counter = counter - 1
+
+        if (counter == 0) {
+            weather.update(mesto)
+            counter = 10
+        }
+        
+    }, 1000)
+    
+    document.querySelector(".search-input").value = ""
+}
