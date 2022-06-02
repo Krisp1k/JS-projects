@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" contenteditable="false">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIE DB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h2>Movie database</h2>
+        <div class="search-bar">
+            <input type="text" name="search-bar" id="search" placeholder="Movie name...">
+            <button id="search-button"></button>
+        </div>
+        <div class="customize-bar">
+            <div>
+                <button id="back-to-first-page">Default settings</button>
+            </div>
+            
+            <div>
+                <label for="sort-by">Sort by</label>
+                <select name="sort-by" id="sort-by">
+                    <option value="popularity" selected>Popularity</option>
+                    <option value="name">Name</option>
+                    <option value="release_date">Release date</option>
+                    <option value="vote_average">Rating</option>
+                </select>
+            </div>
+            <div>
+                <label for="order">Order by</label>
+                <select name="order" id="order-by">
+                    <option value="desc" selected>descendent</option>
+                    <option value="asc">ascendent</option>
+                </select>
+            </div>
+            <div>
+                <label for="page">Page</label>
+                <input type="number" name="page" id="page" value="1" min="1">
+            </div>
+            <div>
+                <button id="update-results">Update</button>
+            </div>
+            
+        </div>
+        <div id="page-show"></div>
+    </header>
+    <main id="main"></main>
+    <button onclick="topFunction()" id="top-btn" title="Go to top">Top</button>
+    <script>
+        mybutton = document.getElementById("top-btn"); 
+        window.onscroll = function () { scrollFunction() }; 
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { 
+                mybutton.style.transform = "scale(1)"; 
+            } else { 
+                mybutton.style.transform = "scale(0)"; 
+            } 
+        } 
+
+        function topFunction() {
+             document.body.scrollTop = 0; document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script src="script.js" defer></script>
+</body>
+</html>
