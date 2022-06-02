@@ -1,5 +1,27 @@
 const main = document.getElementById("main");
 
+const AllGenresList = {
+    28: "Action",
+    12: "Adventure",
+    16: "Animation",
+    35: "Comedy",
+    80: "Crime",
+    99: "Documentary",
+    18: "Drama",
+    10751: "Family",
+    14: "Fantasy",
+    36: "History",
+    27: "Horror",
+    10402: "Music",
+    9648: "Mystery",
+    10749: "Romance",
+    878: "Science Fiction",
+    10770: "TV Movie",
+    53: "Thriller",
+    10752: "War",
+    37: "Western"
+}
+
 let sortBy = document.getElementById("sort-by").value; // popularity, name, release_date
 let order = document.getElementById("order-by").value; // asc
 let page = 1;
@@ -65,8 +87,25 @@ function searchMovie(url) {
         const movieID = movie.id;
         const rating = movie.vote_average;
         const peopleRated = movie.popularity;
+        const movieGenre = movie.genre_ids
 
-        //const newReleaseDate = releaseDate.split("-")[2] + "." + releaseDate.split("-")[1] + "." + releaseDate.split("-")[0]
+        //console.log(AllGenresList)
+
+        // let stringOfGenres = movieGenre.join(",")
+        let newGenres = []
+
+        movieGenre.forEach(genre => convertGenres(genre))
+
+        function convertGenres(genre) {
+            if (genre in AllGenresList) {
+                console.log(AllGenresList[genre])
+                newGenres.push(AllGenresList[genre])
+            }
+        }
+
+        
+        let stringOfGenres = newGenres.join(", ")
+        console.log(stringOfGenres)
 
         const card = document.createElement("div"); card.classList.add("movie-card");
         const name = document.createElement("div"); name.classList.add("movie-name");
@@ -76,9 +115,10 @@ function searchMovie(url) {
         const lang = document.createElement("div"); lang.classList.add("language");
         const link = document.createElement("div"); link.classList.add("movie-link");
         const votes = document.createElement("div"); votes.classList.add("rating");
+        const genres = document.createElement("div"); genres.classList.add("genres")
         const showingPage = document.getElementById("page-show");
 
-        card.appendChild(image);card.appendChild(name);card.appendChild(adult);card.appendChild(lang);card.appendChild(release);card.appendChild(votes);
+        card.appendChild(image);card.appendChild(name);card.appendChild(genres);card.appendChild(adult);card.appendChild(lang);card.appendChild(release);card.appendChild(votes);
         card.appendChild(link);
         main.appendChild(card);
 
@@ -86,6 +126,7 @@ function searchMovie(url) {
 
         if (imageSource == null) { image.src="nopic.png"} else { image.src = IMGPATH + imageSource};
         name.innerHTML = movieName;
+        genres.innerHTML = `<b>Genres:</b> ${stringOfGenres}`
         if (adultOnly == false) { adult.innerHTML = "<b>18+ :</b> No"} else { adult.innerHTML = "18+ : Yes"};
         if (releaseDate == undefined) { release.innerHTML = release.innerHTML = "<b>Release date: </b>unknown";} else {release.innerHTML = "<b>Release date: </b>" + releaseDate};
         lang.innerHTML = "<b>Language: </b>" + languague.toUpperCase();
