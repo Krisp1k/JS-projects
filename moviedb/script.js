@@ -17,10 +17,7 @@ document.getElementById("page").addEventListener("input", function() {
 });
 
 document.getElementById("back-to-first-page").addEventListener("click", ()=> {
-    document.getElementById("order-by").value = "desc";
-    document.getElementById("sort-by").value = "popularity";
-    document.getElementById("page").value = 1;
-    document.getElementById("search").value = "";
+    resetSettings();
     apiUrl = `https://api.themoviedb.org/3/discover/movie?sort_by=${ document.getElementById("sort-by").value}.${document.getElementById("order-by").value}&api_key=04c35731a5ee918f014970082a0088b1&page=${document.getElementById("page").value}`;
     searchMovie(apiUrl);
 });
@@ -116,6 +113,15 @@ function searchBar() {
         alert("Page number must be >= 1");
         document.getElementById("page").value = 1;
     };
+    resetSettings()
 };
+
+function resetSettings() {
+    document.getElementById("order-by").value = "desc";
+    document.getElementById("sort-by").value = "popularity";
+    document.getElementById("page").value = 1;
+    document.getElementById("search").value = "";
+    document.getElementById("page-show").innerHTML = `Showing the first ${main.childElementCount} results of <b> page 1</b>`
+}
 
 window.onload = searchMovie(apiUrl);
