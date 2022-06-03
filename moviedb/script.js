@@ -126,7 +126,7 @@ function searchMovie(url) {
 
         if (imageSource == null) { image.src="nopic.png"} else { image.src = IMGPATH + imageSource};
         name.innerHTML = movieName;
-        genres.innerHTML = `<b>Genres:</b> ${stringOfGenres}`
+        if (stringOfGenres == "") { genres.innerHTML = "<b>Genres:</b> not specified"} else { genres.innerHTML = `<b>Genres:</b> ${stringOfGenres}`}
         if (adultOnly == false) { adult.innerHTML = "<b>18+ :</b> No"} else { adult.innerHTML = "18+ : Yes"};
         if (releaseDate == undefined) { release.innerHTML = release.innerHTML = "<b>Release date: </b>unknown";} else {release.innerHTML = "<b>Release date: </b>" + releaseDate};
         lang.innerHTML = "<b>Language: </b>" + languague.toUpperCase();
