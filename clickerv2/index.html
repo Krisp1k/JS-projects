@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+        </style> 
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="upper">
+                <h1>THE VERY EPIC CLICKER GAME</h1>
+                <button id="main-button">CLICK ME</button>
+                <h2>Click this big button to play the game *lol*</h2>
+            </div>
+            
+            <div class="lower">
+                <h3>Upgrades</h3>
+                <div class="buttons">
+                    <div class="normal-btns">
+                        <h4>Normal upgrades</h4>
+                        <div>
+                            <span>
+                                <button class="button not-available" onclick="buyUpgrade(0,5,250)" purchased="false">Power 1</button>
+                            </span>
+                            <span>
+                                <span>Power : + 5</span>
+                                <br>
+                                <span>Cost : 250 points</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <button class="button not-available" onclick="buyUpgrade(1,25,1000)" purchased="false">Power 2</button>
+                            </span>
+                            <span>
+                                <span>Power : + 25</span>
+                                <br>
+                                <span>Cost : 1 000 points</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <button class="button not-available" onclick="buyUpgrade(2,50,5000)" purchased="false">Power 3</button>
+                            </span>
+                            <span>
+                                <span>Power : + 50</span>
+                                <br>
+                                <span>Cost : 5 000 points</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <button class="button not-available" onclick="buyUpgrade(3,120,15000)" purchased="false">Power 4</button>
+                            </span>
+                            <span>
+                                <span>Power : + 120</span>
+                                <br>
+                                <span>Cost : 15 000 points</span>
+                            </span>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    <div class="autoclicker-buttons">
+                        <h4>Autoclickers</h4>
+                        <div>
+                            <span>
+                                <button class="button not-available" onclick="buyAutoclicker(4,15,2500)" purchased="false">Autoclicker 1</button>
+                            </span>
+                            <span>
+                                <span>Power : + 15/s</span>
+                                <br>
+                                <span>Cost : 2 500 points</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span><button class="button not-available" onclick="buyAutoclicker(5,30,7500)" purchased="false">Autoclicker 2</button></span>
+                            <span>
+                                <span>Power : + 30/s</span>
+                                <br>
+                                <span>Cost : 7 500 points</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="victory">
+                        <h4>Win the game</h4>
+                        <div>
+                            <span>
+                                <button class="button not-available" id="victory-button" onclick="win(100000)" purchased="false">WIN</button>
+                            </span>
+                            <span>
+                                <span>Cost : 100 000 points</span>
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right">
+            <div class="stats">
+                <h3>Statistics</h3>
+                <br><hr>
+                <div>
+                    <span>Current power: </span><span id="power">1</span>
+                </div>
+                <hr>
+                <div>
+                    <span>Current Autoclicker: </span><span id="current-autoclicker">0</span>
+                </div>
+                <hr><br><br><hr>
+                <div>
+                    <span>Current points: </span><span id="current-points">0</span>
+                </div>
+                <hr>
+                <div>
+                    <span>Total points: </span><span id="total-points">0</span>
+                </div>
+                <hr><br><br><hr>
+                <div>
+                    <span>Wins: </span><span id="count-wins">0</span>
+                </div>
+                <hr>
+            </div>
+        </div>
+        
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
