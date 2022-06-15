@@ -7,9 +7,9 @@ const VICTORYBUTTON = document.getElementById("victory-button");
 const AUTOCLICKER = document.getElementById("current-autoclicker");
 
 let powerCounter = 1;
-let points = 7498;
+let points = 0;
 let autoclicks = 0;
-let totalPoints = 7498; 
+let totalPoints = 0; 
 
 window.onload = function (){
     checkUpgrades();
