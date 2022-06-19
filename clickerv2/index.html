@@ -24,6 +24,7 @@
                 <div class="buttons">
                     <div class="normal-btns">
                         <h4>Normal upgrades</h4>
+                        <p>Increase the strength of your clicks</span>
                         <div>
                             <span>
                                 <button class="button not-available" onclick="buyUpgrade(0,5,250)" purchased="false">Power 1</button>
@@ -64,13 +65,10 @@
                                 <span>Cost : 15 000 points</span>
                             </span>
                         </div>
-                        
-                        
-                        
-                        
                     </div>
                     <div class="autoclicker-buttons">
                         <h4>Autoclickers</h4>
+                        <p>Automatically will click for you</p>
                         <div>
                             <span>
                                 <button class="button not-available" onclick="buyAutoclicker(4,15,2500)" purchased="false">Autoclicker 1</button>
@@ -89,15 +87,51 @@
                                 <span>Cost : 7 500 points</span>
                             </span>
                         </div>
+                        <div>
+                            <span><button class="button not-available" onclick="buyAutoclicker(6,50,12500)" purchased="false">Autoclicker 3</button></span>
+                            <span>
+                                <span>Power : + 50/s</span>
+                                <br>
+                                <span>Cost : 12 500 points</span>
+                            </span>
+                        </div>
                     </div>
-                    <div class="victory">
-                        <h4>Win the game</h4>
+                    <div class="one-time-clickers">
+                        <h4>Time-limited clicks</h4>
+                        <p>Multiplies your <b>current</b> amount of clicks</p>
                         <div>
                             <span>
-                                <button class="button not-available" id="victory-button" onclick="win(100000)" purchased="false">WIN</button>
+                                <button class="button not-available" onclick="buyTimeLimitedUpgrade(7,1.5,20000,60000)" purchased="false">Time-limited 1</button>
                             </span>
                             <span>
-                                <span>Cost : 100 000 points</span>
+                                <span>Power : current * 1,5 / 60s</span>
+                                <br>
+                                <span>Cost : 20 000 points</span>
+                                <br>
+                                <span>DOES NOT apply on autoclickers</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span><button class="button not-available" onclick="buyTimeLimitedUpgrade(8,2.5,30000,30000)" purchased="false">Time-limited 2</button></span>
+                            <span>
+                                <span>Power : current * 2,5 / 30s</span>
+                                <br>
+                                <span>Cost : 30 000 points</span>
+                                <br>
+                                <span>DOES apply on autoclickers</span>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="victory">
+                        <h4>Victory</h4>
+                        <p>Win the game</p>
+                        <div>
+                            <span>
+                                <button class="button not-available" id="victory-button" onclick="win(500000)" purchased="false">WIN</button>
+                            </span>
+                            <span>
+                                <span>Cost : 500 000 points</span>
                             </span>
                         </div>
                         
@@ -130,6 +164,16 @@
                     <span>Wins: </span><span id="count-wins">0</span>
                 </div>
                 <hr>
+               
+                <div>
+                    <button class="button" onclick="addPoints(999999)">Add 999 999 points</button>
+                </div>
+                <div>
+                    <button class="button" onclick="removePoints(999999)">Remove 999 999 points</button>
+                </div>
+                <div>
+                    <button class="button" onclick="reset()">Reset game</button>
+                </div>
             </div>
         </div>
         
