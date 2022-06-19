@@ -9,7 +9,7 @@ Also it's being taken too seriously lol
 
 **List of projects:** <br />
 Calculators - calculators for calculating salaries <br />
-Clicker - very bad clicker game <br />
+ClickerV2 - very basic clicker game <br />
 Password generator <br />
 To-do app <br />
 Weather app - used www.openweathermap.org API <br />
