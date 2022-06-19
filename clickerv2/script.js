@@ -24,20 +24,20 @@ window.onload = function (){
 function getDataFromLS() {
 
     if (localStorage.getItem("Power0") === "true") { 
-        BUTTONS[3].innerHTML = "Bought"; BUTTONS[3].style.backgroundColor = "#0E2A47"; BUTTONS[3].setAttribute("purchased", "true");}
+        BUTTONS[0].innerHTML = "Bought"; BUTTONS[3].style.backgroundColor = "#0E2A47"; BUTTONS[0].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power1") === "true") { 
-        BUTTONS[4].innerHTML = "Bought"; BUTTONS[4].style.backgroundColor = "#0E2A47"; BUTTONS[4].setAttribute("purchased", "true");}
+        BUTTONS[1].innerHTML = "Bought"; BUTTONS[4].style.backgroundColor = "#0E2A47"; BUTTONS[1].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power2") === "true") { 
-        BUTTONS[5].innerHTML = "Bought"; BUTTONS[5].style.backgroundColor = "#0E2A47"; BUTTONS[5].setAttribute("purchased", "true");}
+        BUTTONS[2].innerHTML = "Bought"; BUTTONS[5].style.backgroundColor = "#0E2A47"; BUTTONS[2].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power3") === "true") { 
-        BUTTONS[6].innerHTML = "Bought"; BUTTONS[6].style.backgroundColor = "#0E2A47"; BUTTONS[6].setAttribute("purchased", "true");}
+        BUTTONS[3].innerHTML = "Bought"; BUTTONS[6].style.backgroundColor = "#0E2A47"; BUTTONS[3].setAttribute("purchased", "true");}
 
     if (localStorage.getItem("Auto4") === "true") { 
-        BUTTONS[0].innerHTML = "Bought"; BUTTONS[0].style.backgroundColor = "#0E2A47"; BUTTONS[0].setAttribute("purchased", "true");}
+        BUTTONS[4].innerHTML = "Bought"; BUTTONS[0].style.backgroundColor = "#0E2A47"; BUTTONS[4].setAttribute("purchased", "true");}
     if (localStorage.getItem("Auto5") === "true") { 
-        BUTTONS[1].innerHTML = "Bought"; BUTTONS[1].style.backgroundColor = "#0E2A47"; BUTTONS[1].setAttribute("purchased", "true");}
+        BUTTONS[5].innerHTML = "Bought"; BUTTONS[1].style.backgroundColor = "#0E2A47"; BUTTONS[5].setAttribute("purchased", "true");}
     if (localStorage.getItem("Auto6") === "true") { 
-        BUTTONS[2].innerHTML = "Bought"; BUTTONS[2].style.backgroundColor = "#0E2A47"; BUTTONS[2].setAttribute("purchased", "true");}
+        BUTTONS[6].innerHTML = "Bought"; BUTTONS[2].style.backgroundColor = "#0E2A47"; BUTTONS[6].setAttribute("purchased", "true");}
 
     if (localStorage.getItem("Time7") === "true") { 
         BUTTONS[7].innerHTML = "Bought"; BUTTONS[7].style.backgroundColor = "#0E2A47"; BUTTONS[7].setAttribute("purchased", "true");}
