@@ -17,44 +17,38 @@ window.onload = function (){
     checkUpgrades();
     updateStats();
     getDataFromLS();
-    //reset()
 }
 
-// CurrentPoints, PurchasedButtons, wins, CurrentPower, CurrentAutoclicker
 function getDataFromLS() {
 
     if (localStorage.getItem("Power0") === "true") { 
-        BUTTONS[0].innerHTML = "Bought"; BUTTONS[3].style.backgroundColor = "#0E2A47"; BUTTONS[0].setAttribute("purchased", "true");}
+        BUTTONS[0].innerHTML = "Bought"; BUTTONS[0].style.backgroundColor = "#0E2A47"; BUTTONS[0].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power1") === "true") { 
-        BUTTONS[1].innerHTML = "Bought"; BUTTONS[4].style.backgroundColor = "#0E2A47"; BUTTONS[1].setAttribute("purchased", "true");}
+        BUTTONS[1].innerHTML = "Bought"; BUTTONS[1].style.backgroundColor = "#0E2A47"; BUTTONS[1].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power2") === "true") { 
-        BUTTONS[2].innerHTML = "Bought"; BUTTONS[5].style.backgroundColor = "#0E2A47"; BUTTONS[2].setAttribute("purchased", "true");}
+        BUTTONS[2].innerHTML = "Bought"; BUTTONS[2].style.backgroundColor = "#0E2A47"; BUTTONS[2].setAttribute("purchased", "true");}
     if (localStorage.getItem("Power3") === "true") { 
-        BUTTONS[3].innerHTML = "Bought"; BUTTONS[6].style.backgroundColor = "#0E2A47"; BUTTONS[3].setAttribute("purchased", "true");}
+        BUTTONS[3].innerHTML = "Bought"; BUTTONS[3].style.backgroundColor = "#0E2A47"; BUTTONS[3].setAttribute("purchased", "true");}
 
     if (localStorage.getItem("Auto4") === "true") { 
-        BUTTONS[4].innerHTML = "Bought"; BUTTONS[0].style.backgroundColor = "#0E2A47"; BUTTONS[4].setAttribute("purchased", "true");}
+        BUTTONS[4].innerHTML = "Bought"; BUTTONS[4].style.backgroundColor = "#0E2A47"; BUTTONS[4].setAttribute("purchased", "true");}
     if (localStorage.getItem("Auto5") === "true") { 
-        BUTTONS[5].innerHTML = "Bought"; BUTTONS[1].style.backgroundColor = "#0E2A47"; BUTTONS[5].setAttribute("purchased", "true");}
+        BUTTONS[5].innerHTML = "Bought"; BUTTONS[5].style.backgroundColor = "#0E2A47"; BUTTONS[5].setAttribute("purchased", "true");}
     if (localStorage.getItem("Auto6") === "true") { 
-        BUTTONS[6].innerHTML = "Bought"; BUTTONS[2].style.backgroundColor = "#0E2A47"; BUTTONS[6].setAttribute("purchased", "true");}
+        BUTTONS[6].innerHTML = "Bought"; BUTTONS[6].style.backgroundColor = "#0E2A47"; BUTTONS[6].setAttribute("purchased", "true");}
 
-    if (localStorage.getItem("Time7") === "true") { 
-        BUTTONS[7].innerHTML = "Bought"; BUTTONS[7].style.backgroundColor = "#0E2A47"; BUTTONS[7].setAttribute("purchased", "true");}
-    if (localStorage.getItem("Time8") === "true") { 
-        BUTTONS[8].innerHTML = "Bought"; BUTTONS[8].style.backgroundColor = "#0E2A47"; BUTTONS[8].setAttribute("purchased", "true");}
+    BUTTONS[7].innerHTML = "Time-limited 1"; 
+    BUTTONS[8].innerHTML = "Time-limited 2"; 
 
 
-    powerCounter = localStorage.getItem("CurrentPower");
-    points = localStorage.getItem("CurrentPoints");
-    autoclicks = localStorage.getItem("CurrentAutoclicker");
-    wins = localStorage.getItem("Wins");
-
+    powerCounter = parseInt(localStorage.getItem("CurrentPower"));
+    points = parseInt(localStorage.getItem("CurrentPoints"));
+    totalPoints = parseInt(localStorage.getItem("TotalPoints"));
+    autoclicks = parseInt(localStorage.getItem("CurrentAutoclicker"));
+    wins = parseInt(localStorage.getItem("Wins"));
 
     updateStats();
     checkUpgrades();
-
-
 }
 
 function checkUpgrades() {
@@ -95,6 +89,7 @@ function checkUpgrades() {
 function updateStats() {
     TOTALPOINTS.innerHTML = totalPoints;
     CURRENTPOINTS.innerHTML = points;
+    AUTOCLICKER.innerHTML = autoclicks;
     WINS.innerHTML = wins;
 }
 
@@ -126,6 +121,7 @@ function buyUpgrade(btnID, powerUpgrade, neededPoints) {
 
         localStorage.setItem("Power" + btnID, "true")
         localStorage.setItem("CurrentPoints", parseInt(points))
+        localStorage.setItem("TotalPoints", parseInt(totalPoints))
         localStorage.setItem("CurrentPower", parseInt(powerCounter))
     } else {
         alert("You can't buy this yet.");
@@ -144,26 +140,47 @@ function buyTimeLimitedUpgrade(btnID, multiplier, cost, duration) {
 
     if (points >= cost) {
 
-        powerCounter = powerCounter + (powerCounter * multiplier)
+        let bonus = (powerCounter * multiplier)
+        let autoBonus = (autoclicks * multiplier)
+
+        powerCounter = powerCounter + bonus
         points = points - cost;
 
         localStorage.setItem("CurrentPower", parseInt(powerCounter))
         localStorage.setItem("CurrentPoints", parseInt(points))
+        localStorage.setItem("TotalPoints", parseInt(totalPoints))
         localStorage.setItem("Time" + btnID, "true")
+
+        if (btnID === 8) {
+            autoclicks = autoclicks + autoBonus;
+            localStorage.setItem("CurrentAutoclicker", parseInt(autoclicks))
+            localStorage.setItem("Time" + btnID, "true")
+        }
        
         BUTTONS[btnID].setAttribute("purchased", "true");
+        BUTTONS[btnID].innerHTML = "Not available now";
         POWER.innerHTML = powerCounter;
 
         console.log("time-limited start")
         console.log(powerCounter, multiplier)
-
+        
         setTimeout(function () {
 
-            powerCounter = powerCounter - (powerCounter / multiplier)
+            powerCounter = powerCounter - bonus
             POWER.innerHTML = powerCounter;
 
             localStorage.setItem("CurrentPower", parseInt(powerCounter))
             localStorage.setItem("CurrentPoints", parseInt(points))
+            localStorage.setItem("TotalPoints", parseInt(totalPoints))
+
+            BUTTONS[btnID].innerHTML = "Time-limited 1";
+
+            if (btnID === 8) {
+                autoclicks = autoclicks - autoBonus;
+                localStorage.setItem("CurrentAutoclicker", parseInt(autoclicks));
+                localStorage.setItem("Time" + btnID, "false");
+                BUTTONS[btnID].innerHTML = "Time-limited 2";
+            }
 
             console.log("time-limited end")
             console.log(powerCounter, multiplier)
@@ -177,10 +194,6 @@ function buyTimeLimitedUpgrade(btnID, multiplier, cost, duration) {
 
     } else {
         alert("You can't buy this yet.");
-    }
-
-    if (btnID == 8) {
-        autoclicks = autoclicks 
     }
 
     checkUpgrades();
@@ -202,6 +215,8 @@ function buyAutoclicker(btnID, autoPoints, neededPoints) {
 
         localStorage.setItem("CurrentPower", parseInt(powerCounter))
         localStorage.setItem("CurrentPoints", parseInt(points))
+        localStorage.setItem("TotalPoints", parseInt(totalPoints))
+        localStorage.setItem("CurrentAutoclicker", parseInt(autoclicks))
 
         let autoClicker = setInterval(function (){
             points = points + autoPoints;
@@ -209,6 +224,8 @@ function buyAutoclicker(btnID, autoPoints, neededPoints) {
             updateStats();
             localStorage.setItem("CurrentPower", parseInt(powerCounter))
             localStorage.setItem("CurrentPoints", parseInt(points))
+            localStorage.setItem("TotalPoints", parseInt(totalPoints))
+            localStorage.setItem("CurrentAutoclicker", parseInt(autoclicks))
         }, 1000);
 
         POWER.innerHTML = powerCounter;
@@ -233,6 +250,7 @@ function win(cost) {
         wins = wins + 1;
         points = points - cost;
         localStorage.setItem("Wins", wins);
+
         updateStats();
         checkUpgrades();
         alert("YOU WON. NUMBER OF WINS : " + wins)
@@ -240,13 +258,23 @@ function win(cost) {
 }
 
 function addPoints(bonus) {
-    points = points + bonus
-    updateStats()
+    points = points + bonus;
+    totalPoints = totalPoints + bonus;
+
+    localStorage.setItem("CurrentPoints", parseInt(points))
+    localStorage.setItem("TotalPoints", parseInt(totalPoints))
+
+    updateStats();
     checkUpgrades();
 }
 
 function removePoints(bonus) {
-    points = points - bonus
+    points = points - bonus;
+    totalPoints = totalPoints - bonus;
+
+    localStorage.setItem("CurrentPoints", parseInt(points))
+    localStorage.setItem("TotalPoints", parseInt(totalPoints))
+
     updateStats();
     checkUpgrades();
 }
@@ -280,6 +308,8 @@ function reset() {
 
     updateStats();
     checkUpgrades();
+
+    location.reload(); 
 }
 
 

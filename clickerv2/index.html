@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
-        </style> 
+    <link rel="stylesheet" href="responsive.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+    </style> 
 </head>
 <body>
     <div class="container">
@@ -17,6 +17,10 @@
                 <h1>THE VERY EPIC CLICKER GAME</h1>
                 <button id="main-button">CLICK ME</button>
                 <h2>Click this big button to play the game *lol*</h2>
+
+                <button class="hamburger">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
             
             <div class="lower">
@@ -116,6 +120,8 @@
                             <span>
                                 <span>Power : current * 2,5 / 30s</span>
                                 <br>
+                                <span>AutoClicks : current * 2,5 / 30s</span>
+                                <br>
                                 <span>Cost : 30 000 points</span>
                                 <br>
                                 <span>DOES apply on autoclickers</span>
@@ -142,42 +148,51 @@
         </div>
         <div class="right">
             <div class="stats">
-                <h3>Statistics</h3>
+                <div>
+                    <h3>Statistics</h3>
+                </div>
+                
                 <br><hr>
                 <div>
-                    <span>Current power: </span><span id="power">1</span>
+                    <div>
+                        <span>Current power: </span><span id="power">1</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <span>Current Autoclicker: </span><span id="current-autoclicker">0</span>
+                    </div>
+                    <hr><br><br><hr>
+                    <div>
+                        <span>Current points: </span><span id="current-points">0</span>
+                    </div>
+                    <hr>
+                    <div>
+                        <span>Total points: </span><span id="total-points">0</span>
+                    </div>
+                    <hr><br><br><hr>
+                    <div>
+                        <span>Wins: </span><span id="count-wins">0</span>
+                    </div>
                 </div>
+                
                 <hr>
                 <div>
-                    <span>Current Autoclicker: </span><span id="current-autoclicker">0</span>
+                    <div>
+                        <button class="button" onclick="addPoints(999999)">Add 999 999 points</button>
+                    </div>
+                    <div>
+                        <button class="button" onclick="removePoints(999999)">Remove 999 999 points</button>
+                    </div>
+                    <div>
+                        <button class="button" onclick="reset()">Reset game</button>
+                    </div>
                 </div>
-                <hr><br><br><hr>
-                <div>
-                    <span>Current points: </span><span id="current-points">0</span>
-                </div>
-                <hr>
-                <div>
-                    <span>Total points: </span><span id="total-points">0</span>
-                </div>
-                <hr><br><br><hr>
-                <div>
-                    <span>Wins: </span><span id="count-wins">0</span>
-                </div>
-                <hr>
-               
-                <div>
-                    <button class="button" onclick="addPoints(999999)">Add 999 999 points</button>
-                </div>
-                <div>
-                    <button class="button" onclick="removePoints(999999)">Remove 999 999 points</button>
-                </div>
-                <div>
-                    <button class="button" onclick="reset()">Reset game</button>
-                </div>
+                
             </div>
         </div>
         
     </div>
     <script src="script.js" defer></script>
+    <script src="hamburger.js" defer></script>
 </body>
 </html>
